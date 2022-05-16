@@ -13,4 +13,5 @@ public class Book {
     String Press;
     String Description;
     String Price;
+    String Status;
 }
