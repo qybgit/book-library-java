@@ -1,5 +1,7 @@
 package com.book.Servlet;
 
+
+import com.alibaba.fastjson2.JSON;
 import com.book.entity.Shopingbook;
 
 import javax.servlet.*;
@@ -16,9 +18,11 @@ if (request.getSession().getAttribute("shop")==null){
     request.getRequestDispatcher("/shop.jsp").forward(request,response);
 }else {
     Shopingbook booList= (Shopingbook) request.getSession().getAttribute("shop");
-    booList.remover(id);
+    booList.remover1(id);
     request.getSession().setAttribute("shop",booList);
-    request.getRequestDispatcher("/shop.jsp").forward(request,response);
+    response.setContentType("application/json;charset=utf-8");
+    response.getWriter().print(JSON.toJSON(booList));
+
 }
 
     }

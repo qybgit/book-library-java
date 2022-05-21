@@ -44,6 +44,26 @@
     <aside class="sidebar-wrapper">
         <div class="side-menu-wrap">
             <ul class="main-menu">
+                <li>
+                <a href="total" class="active">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                            </span>
+                    <span class="menu-text">
+                                首页
+                            </span>
+                </a>
+            </li>
+                <li>
+                    <a href="shop.jsp">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            </span>
+                        <span class="menu-text">
+                                我的书架
+                            </span>
+                    </a>
+                </li>
                 <c:forEach items="${bookList}" var="book">
                     <li>
                         <a href="book?id=${book.getId()}">
@@ -56,16 +76,7 @@
                         </a>
                     </li>
                 </c:forEach>
-                <li>
-                    <a href="login" class="active">
-                            <span class="icon-menu feather-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            </span>
-                        <span class="menu-text">
-                                首页
-                            </span>
-                    </a>
-                </li>
+
 
             </ul>
         </div>
@@ -115,7 +126,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-styled mb-0">
                                         <thead>
-                                        <tr>
+                                        <tr><th>样式</th>
                                             <th>书籍编号</th>
                                             <th>书籍名称</th>
                                             <th>书籍作者</th>
@@ -125,6 +136,7 @@
                                         <c:forEach items="${book}" var="book">
                                             <tbody>
                                             <tr>
+                                                <td><img src="static/book/${book.getImageUrl()}"> </td>
                                                 <td >${book.getCode()}</td>
                                                 <td >${book.getName()}</td>
                                                 <td >${book.getAuthors()}</td>
@@ -140,12 +152,10 @@
 
                                                 </td>
                                                 <td>
-                                                    <c:if test="${book.getStatus()== '有货'}">
-                                                        <a href="shop?id=${book.getId()}">+加入书架</a>
-                                                    </c:if>
-                                                    <c:if test="${book.getStatus()== '无货'}">
-                                                        已加入
-                                                    </c:if>
+
+                                                    <a style="text-decoration: none;color: #00acee" href="javascript:doe(${book.getId()})" >+加入书架</a>
+
+
 
                                                 </td>
 
@@ -170,6 +180,7 @@
 
 <!-- Script Start -->
 <script src="static/js/jquery.min.js"></script>
+<script src="static/js/remove.js"></script>
 <script src="static/js/popper.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/swiper.min.js"></script>

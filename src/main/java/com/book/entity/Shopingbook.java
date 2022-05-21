@@ -32,29 +32,49 @@ public void add(String id){
    found=true;
    break;
   }
-
+//判断是否重复加入
  }if (found==false){
-  mapper.selectnot(Integer.parseInt(id));
+  mapper.selectnot(Integer.parseInt(id));//图书状态更改
   this.bookList.add(mapper.selectoneBookByid(id));
  }
 
 
 
 }
+public void add1(String id){
+ SqlSession sqlSession= MybatisUtil.getSession();
+ BookMapper mapper=sqlSession.getMapper(BookMapper.class);
+
+ boolean found=false;
+ for(Book book1:this.bookList){
+  if(book1.getId().equals(id)){
+   found=true;
+   break;
+  }
+
+ }if (found==false){
+
+  this.bookList.add(mapper.selectoneBookByid(id));
+ }
+}
 public  void remover(String id){
-//  for(int i=0;i<this.bookList.size();i++)
-//  {
-//   if(this.bookList.get(i).getId().equals(id)){
-//    this.bookList.remove(i);
-//   }
-// }
  SqlSession sqlSession= MybatisUtil.getSession();
  BookMapper mapper=sqlSession.getMapper(BookMapper.class);
  for(Book book:this.bookList){
   if(book.getId().equals(id)){
-   mapper.selecthave(Integer.parseInt(id));
-   this.bookList.remove(book);
 
+   this.bookList.remove(book);
+    break;
+  }
+ }//判断是否重复加入
+}
+public  void remover1(String id){
+ SqlSession sqlSession= MybatisUtil.getSession();
+ BookMapper mapper=sqlSession.getMapper(BookMapper.class);
+ for(Book book:this.bookList){
+  if(book.getId().equals(id)){
+   mapper.selecthave(Integer.parseInt(id));//图书状态更改为有货
+   this.bookList.remove(book);
     break;
   }
  }

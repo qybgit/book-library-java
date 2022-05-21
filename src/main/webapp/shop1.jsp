@@ -139,13 +139,13 @@
                                             <th>书籍作者</th>
                                             <th>书籍出版社</th>
                                             <th>图书状态</th>
-                                            <th>是否借阅</th>
+                                            <th>是否归还</th>
                                             <th></th>
                                         </tr>
                                         </thead>
-                                        <c:forEach items="${shop.getBookList()}" var="book">
+                                        <c:forEach items="${shop1.getBookList()}" var="book">
                                             <tbody>
-                                            <tr id="${book.getId()}">
+                                            <tr>
                                                 <td><img src="static/book/${book.getImageUrl()}"> </td>
                                                 <td >${book.getCode()}</td>
                                                 <td >${book.getName()}</td>
@@ -161,8 +161,8 @@
                                                     <c:if test="${book.getStatus()== '无货'}">
                                                         <p style="color: red">无法借阅</p>
                                                     </c:if>
-                                                    </td>
-                                                <td><a style="color: red" href="javascript:doRequst(${book.getId()})" >移除</a></td>
+                                                </td>
+                                                <td><a style="color: green" href="removerreal?id=${book.getId()}">归还</a></td>
 
 
 
@@ -187,7 +187,6 @@
 
 <!-- Script Start -->
 <script src="static/js/jquery.min.js"></script>
-<script src="static/js/remove.js"></script>
 <script src="static/js/popper.min.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <script src="static/js/swiper.min.js"></script>

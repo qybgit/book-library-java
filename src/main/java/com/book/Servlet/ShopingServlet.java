@@ -1,5 +1,6 @@
 package com.book.Servlet;
 
+import com.alibaba.fastjson2.JSON;
 import com.book.entity.Shopingbook;
 
 import javax.servlet.*;
@@ -12,6 +13,7 @@ public class ShopingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 String id=request.getParameter("id");
+
         Shopingbook bookList;
         if(request.getSession().getAttribute("shop")==null){
             bookList=new Shopingbook();
@@ -19,10 +21,12 @@ String id=request.getParameter("id");
         }else {
             bookList= (Shopingbook) request.getSession().getAttribute("shop");
         }
-        bookList.add(id);
+        bookList.add1(id);
 
         request.getSession().setAttribute("shop",bookList);
-        request.getRequestDispatcher("/shop.jsp").forward(request,response);
+        response.setContentType("application/json;charset=utf-8");
+        response.getWriter().print(JSON.toJSON(bookList));
+        request.getRequestDispatcher("/tran").forward(request,response);
 
     }
 

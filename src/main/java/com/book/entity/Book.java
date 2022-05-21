@@ -14,4 +14,5 @@ public class Book {
     String Description;
     String Price;
     String Status;
+    String ImageUrl;
 }
