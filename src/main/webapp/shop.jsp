@@ -133,7 +133,9 @@
                                 <div class="table-responsive">
                                     <table class="table table-styled mb-0">
                                         <thead>
-                                        <tr><th>样式</th>
+                                        <tr>
+                                            <th><input type="checkbox" name="check" value="all" id="del"  ></th>
+                                            <th>样式</th>
                                             <th>书籍编号</th>
                                             <th>书籍名称</th>
                                             <th>书籍作者</th>
@@ -146,14 +148,25 @@
                                         <c:forEach items="${shop.getBookList()}" var="book">
                                             <tbody>
                                             <tr id="${book.getId()}">
+                                                <td> <c:if test="${book.getStatus() == '无货'}">
+                                                </c:if>
+                                                    <c:if test="${book.getStatus() == '有货'}">
+                                                        <input type="checkbox" name="${book.getId()}" value="check" >
+                                                    </c:if>
+
+                                                </td>
                                                 <td><img src="static/book/${book.getImageUrl()}"> </td>
                                                 <td >${book.getCode()}</td>
                                                 <td >${book.getName()}</td>
                                                 <td >${book.getAuthors()}</td>
                                                 <td>${book.getPress()}</td>
                                                 <td>
-                                                    <label class="mb-0 badge badge-primary" title="" data-original-title="Pending">${book.getStatus()}</label>
-                                                </td>
+                                                    <c:if test="${book.getStatus() == '无货'}">
+                                                        <label class="mb-0 badge badge-success" title="" data-original-title="Pending"> ${book.getStatus()}</label>
+                                                    </c:if>
+                                                    <c:if test="${book.getStatus() == '有货'}">
+                                                        <label class="mb-0 badge badge-primary" title="" data-original-title="Pending">${book.getStatus()}</label>
+                                                    </c:if>                                                </td>
                                                 <td>
                                                     <c:if test="${book.getStatus()== '有货'}">
                                                         <a style="color: #00acee" href="shopreal?id=${book.getId()}">借阅</a>

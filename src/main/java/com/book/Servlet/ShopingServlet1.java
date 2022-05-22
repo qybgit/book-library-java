@@ -11,18 +11,24 @@ import java.io.IOException;
 public class ShopingServlet1 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id=request.getParameter("id");
-        Shopingbook bookList;
-        if(request.getSession().getAttribute("shop1")==null){
-            bookList=new Shopingbook();
 
+        if(request.getSession().getAttribute("s")==null){
+            request.getSession().setAttribute("msg","请登陆");
+            response.sendRedirect("login.jsp");
         }else {
-            bookList= (Shopingbook) request.getSession().getAttribute("shop1");
-        }
-        bookList.add(id);
+            String id=request.getParameter("id");
+            Shopingbook bookList;
+            if(request.getSession().getAttribute("borrow")==null){
+                bookList=new Shopingbook();
 
-        request.getSession().setAttribute("shop1",bookList);
-        request.getRequestDispatcher("/shop1.jsp").forward(request,response);
+            }else {
+                bookList= (Shopingbook) request.getSession().getAttribute("borrow");
+            }
+            bookList.add(id);
+
+            request.getSession().setAttribute("borrow",bookList);
+            request.getRequestDispatcher("/shop1.jsp").forward(request,response);
+        }
 
     }
 

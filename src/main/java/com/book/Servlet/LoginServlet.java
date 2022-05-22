@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
 if(request.getSession().getAttribute("s")!=null){
     response.sendRedirect("reader.jsp");
 }else {
-    request.getSession().setAttribute("msg","请body登陆");
+    request.getSession().setAttribute("msg","登陆错误");
     response.sendRedirect("login.jsp");
 }
     }

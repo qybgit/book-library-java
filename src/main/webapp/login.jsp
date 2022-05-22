@@ -1,5 +1,8 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
+
+
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -36,7 +39,9 @@
                     <form method="post" action="login">
                         <h2><span class="primary">你好，</span>欢迎!</h2>
                         <p >请输入用户名和密码进行登录</p>
-                        <p  style="color: red">您的用户名或密码输入不正确</p>
+                        <c:if test="${msg!=null}">
+                        <p  style="color: red">${msg}</p>
+                    </c:if>
                         <div class="ad-auth-form">
                             <div class="ad-auth-feilds mb-30">
                                 <input type="text" placeholder="用户名称" class="ad-input" name="username">

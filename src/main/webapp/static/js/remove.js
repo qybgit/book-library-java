@@ -22,3 +22,8 @@ const doe=(id)=>{
 
     )
 }
+$(function () {
+    $('#del').click(function () {
+        $("input[value='check']").attr("checked",true);
+    })
+})
