@@ -128,6 +128,7 @@
                         <div class="card-header pb-0">
                             <h4>书籍列表</h4>
                         </div>
+
                         <div class="card-body">
                             <div class="chart-holder">
                                 <div class="table-responsive">
@@ -140,6 +141,7 @@
                                             <th>书籍出版社</th>
                                             <th>图书状态</th>
                                             <th>是否归还</th>
+
                                             <th></th>
                                         </tr>
                                         </thead>

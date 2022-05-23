@@ -6356,13 +6356,16 @@ input.form-control.search-message {
 .ad-footer-btm {
     position: absolute;
     bottom: 0;
-    padding: 20px;
+    padding: 50px;
     background: #f2f2f5;
     width: 100%;
-    right: 0;
-    left: 0;
+    right: 100px;
+    margin-right: 0%;
+    /*right: 0;*/
+    /*left: 0;*/
     text-align: center;
 }
+
 .ad-footer-btm p {
     color: var(--secondary);
     text-transform: capitalize;

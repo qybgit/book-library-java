@@ -126,11 +126,12 @@
                                 <div class="table-responsive">
                                     <table class="table table-styled mb-0">
                                         <thead>
-                                        <tr><th>样式</th>
-                                            <th>书籍编号</th>
-                                            <th>书籍名称</th>
-                                            <th>书籍作者</th>
-                                            <th>书籍出版社</th>
+                                        <tr><th style="text-align: center">样式</th>
+                                            <th style="text-align: center">书籍编号</th>
+                                            <th style="text-align: center">书籍名称</th>
+                                            <th style="text-align: center">书籍作者</th>
+                                            <th style="text-align: center" >书籍出版社</th>
+
                                         </tr>
                                         </thead>
                                         <c:forEach items="${book}" var="book">

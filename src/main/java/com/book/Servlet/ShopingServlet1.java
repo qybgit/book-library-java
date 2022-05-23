@@ -34,6 +34,8 @@ public class ShopingServlet1 extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+String id=request.getParameter("id");
 
+        System.out.println(id);
     }
 }

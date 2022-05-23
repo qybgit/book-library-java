@@ -124,24 +124,26 @@
             <div class="row">
                 <!-- Styled Table Card-->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card table-card">
+                    <div class="card table-card ">
                         <div class="card-header pb-0">
                             <h4>书籍列表</h4>
                         </div>
                         <div class="card-body">
                             <div class="chart-holder">
                                 <div class="table-responsive">
-                                    <table class="table table-styled mb-0">
+                                    <table class="table table-styled mb-0 h-75">
                                         <thead>
                                         <tr>
-                                            <th><input type="checkbox" name="check" value="all" id="del"  ></th>
-                                            <th>样式</th>
-                                            <th>书籍编号</th>
-                                            <th>书籍名称</th>
-                                            <th>书籍作者</th>
-                                            <th>书籍出版社</th>
-                                            <th>图书状态</th>
-                                            <th>是否借阅</th>
+                                            <th><input type="checkbox" name="checkall" value="all" id="del"  ></th>
+                                            <th style="text-align: center">样式</th>
+                                            <th style="text-align: center">书籍编号</th>
+                                            <th style="text-align: center">书籍名称</th>
+                                            <th style="text-align: center">书籍作者</th>
+                                            <th style="text-align: center">书籍出版社</th>
+                                            <th style="text-align: center">图书状态</th>
+                                            <th ><button  id="btn" style="color: white;background-color: #00acee;width: 80px;height: 50px;text-align: center" >
+                                                借阅
+                                            </button></th>
                                             <th></th>
                                         </tr>
                                         </thead>
@@ -151,7 +153,7 @@
                                                 <td> <c:if test="${book.getStatus() == '无货'}">
                                                 </c:if>
                                                     <c:if test="${book.getStatus() == '有货'}">
-                                                        <input type="checkbox" name="${book.getId()}" value="check" >
+                                                        <input class="qin" type="checkbox" name="check" value="${book.getId()}" >
                                                     </c:if>
 
                                                 </td>
@@ -169,7 +171,7 @@
                                                     </c:if>                                                </td>
                                                 <td>
                                                     <c:if test="${book.getStatus()== '有货'}">
-                                                        <a style="color: #00acee" href="shopreal?id=${book.getId()}">借阅</a>
+                                                        <a style="color: #00acee;text-align: center" href="shopreal?id=${book.getId()}">借阅</a>
                                                     </c:if>
                                                     <c:if test="${book.getStatus()== '无货'}">
                                                         <p style="color: red">无法借阅</p>
@@ -193,8 +195,8 @@
 
             <div class="ad-footer-btm">
                 <p>Copyright © 2021.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">网页模板</a></p>
+
             </div>
-        </div>
     </div>
 </div>
 
