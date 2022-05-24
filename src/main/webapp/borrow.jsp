@@ -76,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="shop1.jsp">
+                    <a href="Detai">
                             <span class="icon-menu feather-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
                             </span>
@@ -124,47 +124,56 @@
             <div class="row">
                 <!-- Styled Table Card-->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="card table-card">
+                    <div class="card table-card ">
                         <div class="card-header pb-0">
                             <h4>书籍列表</h4>
                         </div>
-
                         <div class="card-body">
                             <div class="chart-holder">
                                 <div class="table-responsive">
-                                    <table class="table table-styled mb-0">
+                                    <table class="table table-styled mb-0 h-75">
                                         <thead>
-                                        <tr><th>样式</th>
-                                            <th>书籍编号</th>
-                                            <th>书籍名称</th>
-                                            <th>书籍作者</th>
-                                            <th>书籍出版社</th>
-                                            <th>图书状态</th>
-                                            <th>是否归还</th>
+                                        <tr>
+                                            <th><input type="checkbox" name="checkall" value="all" id="del"  ></th>
+                                            <th style="text-align: center">样式</th>
+                                            <th style="text-align: center">书籍名称</th>
+                                            <th style="text-align: center">借阅时间</th>
+                                            <th style="text-align: center">应还时间</th>
+                                            <th style="text-align: center">归还时间</th>
 
+                                            <th ><button  id="btn" style="color: white;background-color: #00acee;width: 80px;height: 50px;text-align: center" >
+                                                借阅
+                                            </button></th>
                                             <th></th>
                                         </tr>
                                         </thead>
-                                        <c:forEach items="${shop1.getBookList()}" var="book">
+                                        <c:forEach items="${borrowDetai}" var="borrow">
                                             <tbody>
-                                            <tr>
-                                                <td><img src="static/book/${book.getImageUrl()}"> </td>
-                                                <td >${book.getCode()}</td>
-                                                <td >${book.getName()}</td>
-                                                <td >${book.getAuthors()}</td>
-                                                <td>${book.getPress()}</td>
+                                            <tr id="${borrow.getBookId()}">
                                                 <td>
-                                                    <label class="mb-0 badge badge-primary" title="" data-original-title="Pending">${book.getStatus()}</label>
+                                                        <input class="qin" type="checkbox" name="check" value="${borrow.getBookId()}" >
                                                 </td>
-                                                <td>
-                                                    <c:if test="${book.getStatus()== '有货'}">
-                                                        <a style="color: #00acee" href="shopreal?id=${book.getId()}">借阅</a>
-                                                    </c:if>
-                                                    <c:if test="${book.getStatus()== '无货'}">
-                                                        <p style="color: red">无法借阅</p>
-                                                    </c:if>
-                                                </td>
-                                                <td><a style="color: green" href="removerreal?id=${book.getId()}">归还</a></td>
+                                                <td><img src="static/book/${borrow.getBookimg()}"> </td>
+                                               <td >${borrow.getBookName()}</td>
+                                                <td >${borrow.getBorrowDate()}</td>
+                                                <td >${borrow.getReturnedDate()}</td>
+                                                <td>${book.getReturnDate()}</td>
+<%--                                                <td>--%>
+<%--                                                    <c:if test="${book.getStatus() == '无货'}">--%>
+<%--                                                        <label class="mb-0 badge badge-success" title="" data-original-title="Pending"> ${book.getStatus()}</label>--%>
+<%--                                                    </c:if>--%>
+<%--                                                    <c:if test="${book.getStatus() == '有货'}">--%>
+<%--                                                        <label class="mb-0 badge badge-primary" title="" data-original-title="Pending">${book.getStatus()}</label>--%>
+<%--                                                    </c:if>                                                </td>--%>
+<%--                                                <td>--%>
+<%--                                                    <c:if test="${book.getStatus()== '有货'}">--%>
+<%--                                                        <a style="color: #00acee;text-align: center" href="shopreal?id=${book.getId()}">借阅</a>--%>
+<%--                                                    </c:if>--%>
+<%--                                                    <c:if test="${book.getStatus()== '无货'}">--%>
+<%--                                                        <p style="color: red">无法借阅</p>--%>
+<%--                                                    </c:if>--%>
+<%--                                                </td>--%>
+<%--                                                <td><a style="color: red" href="javascript:doRequst(${book.getId()})" >移除</a></td>--%>
 
 
 
@@ -182,22 +191,23 @@
 
             <div class="ad-footer-btm">
                 <p>Copyright © 2021.Company name All rights reserved.<a target="_blank" href="https://sc.chinaz.com/moban/">网页模板</a></p>
+
             </div>
         </div>
     </div>
-</div>
 
-<!-- Script Start -->
-<script src="static/js/jquery.min.js"></script>
-<script src="static/js/popper.min.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<script src="static/js/swiper.min.js"></script>
-<script src="static/js/apexcharts.min.js"></script>
-<script src="static/js/control-chart-apexcharts.js"></script>
-<!-- Page Specific -->
-<script src="static/js/nice-select.min.js"></script>
-<!-- Custom Script -->
-<script src="static/js/custom.js"></script>
+    <!-- Script Start -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/remove.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/swiper.min.js"></script>
+    <script src="static/js/apexcharts.min.js"></script>
+    <script src="static/js/control-chart-apexcharts.js"></script>
+    <!-- Page Specific -->
+    <script src="static/js/nice-select.min.js"></script>
+    <!-- Custom Script -->
+    <script src="static/js/custom.js"></script>
 </body>
 
 </html>

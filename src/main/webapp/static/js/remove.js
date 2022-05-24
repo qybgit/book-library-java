@@ -55,10 +55,18 @@ $(function () {
                 id:JSON.stringify(id)
 
             },
-
             success:(req)=>{
                 window.alert("借阅成功")
-                $('input')
+
+                for (let i = 0; i < id.length; i++) {
+                    $("input[name='check']").parents('tr#'+id[i]).remove()
+                }
+
+                // $("input[name='check']:checked").parents('td').remove()
+
+                    // $("input[name='check']").attr("checked",true).parents('td').remove()
+
+
 
             }
         })
