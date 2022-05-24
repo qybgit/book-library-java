@@ -157,7 +157,7 @@
                                                <td >${borrow.getBookName()}</td>
                                                 <td >${borrow.getBorrowDate()}</td>
                                                 <td >${borrow.getReturnedDate()}</td>
-                                                <td>${book.getReturnDate()}</td>
+                                                <td>${borrow.getReturnDate()}</td>
 <%--                                                <td>--%>
 <%--                                                    <c:if test="${book.getStatus() == '无货'}">--%>
 <%--                                                        <label class="mb-0 badge badge-success" title="" data-original-title="Pending"> ${book.getStatus()}</label>--%>

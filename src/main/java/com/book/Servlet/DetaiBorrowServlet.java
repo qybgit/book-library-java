@@ -24,7 +24,7 @@ public class DetaiBorrowServlet extends HttpServlet {
         borrowList=mapper.selectBorrowList(1);
         shopingBorrow.toBorrowinfo(borrowList);
         request.getSession().setAttribute("borrowDetai",shopingBorrow.getBorrowList());
-//        shopingBorrow.getBorrowList().forEach(System.out::println);
+       shopingBorrow.getBorrowList().forEach(System.out::println);
         response.sendRedirect("borrow.jsp");
 
     }
