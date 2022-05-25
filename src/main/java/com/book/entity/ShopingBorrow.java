@@ -27,11 +27,11 @@ public class ShopingBorrow {
     public void setBorrowList(List<Borrowinfo> borrowList) {
         this.borrowList = borrowList;
     }
-    public boolean tran(int readId){
+    public boolean tran(int bookId){
         SqlSession sqlsession= MybatisUtil.getSession();
         BookMapper mapper=sqlsession.getMapper(BookMapper.class);
-         borrow=mapper.selectBorrow(readId);//查找借阅信息
-        borrowinfo.setBorrow(borrow.readerId,borrow.bookId,borrow.borrowDate,borrow.returnedDate,borrow.returnDate);
+         borrow=mapper.selectBorrow(bookId);//查找借阅信息
+        borrowinfo.setBorrow(borrow.id, borrow.readerId,borrow.bookId,borrow.borrowDate,borrow.returnedDate,borrow.returnDate);
         borrowList.add(borrowinfo);
 return true;
     }
@@ -43,10 +43,10 @@ return true;
             Borrow borrow=borrows.get(i);
             String bookimg=mapper.selectimg(borrows.get(i).getBookId());//获取图片
             String bookname=mapper.selectbookname(borrows.get(i).getBookId());//获取名称
-            borrowinfo.setBorrow(borrow.getReaderId(), borrow.getBookId(), borrow.getBorrowDate(), borrow.getReturnedDate(), borrow.getReturnDate());//设置理想类
+            borrowinfo.setBorrow(borrow.getId(), borrow.getReaderId(), borrow.getBookId(), borrow.getBorrowDate(), borrow.getReturnedDate(), borrow.getReturnDate());//设置理想类
             borrowinfo.setBookimg(bookimg);//设置图片
             borrowinfo.setBookName(bookname);//设置名称
-            borrowList.add(i,borrowinfo);
+            borrowList.add(borrowinfo);
         }
     }
 

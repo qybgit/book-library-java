@@ -25,7 +25,6 @@ String id=request.getParameter("id");
 
         request.getSession().setAttribute("shop",bookList);
         response.setContentType("application/json;charset=utf-8");
-        response.getWriter().print(JSON.toJSON(bookList));
         request.getRequestDispatcher("/tran").forward(request,response);
 
     }

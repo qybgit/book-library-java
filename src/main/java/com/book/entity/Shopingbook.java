@@ -73,7 +73,7 @@ public  void remover1(String id){
  BookMapper mapper=sqlSession.getMapper(BookMapper.class);
  for(Book book:this.bookList){
   if(book.getId().equals(id)){
-   mapper.selecthave(Integer.parseInt(id));//图书状态更改为有货
+   mapper.updatehave(Integer.parseInt(id));//图书状态更改为有货
    this.bookList.remove(book);
     break;
   }

@@ -17,7 +17,6 @@ public class StudentServiceimpl implements StudentService {
         if(student==null)
            return false;
         session.setAttribute("student",student);
-        System.out.println(student);
 
         return true;
     }

@@ -42,10 +42,7 @@ if(request.getSession().getAttribute("s")!=null){
         Student student=studentMappermapper.getstudent(username,password);
         if(student!=null){
             request.getSession().setAttribute("s",student);
-            System.out.println(student.toString());
           response.sendRedirect("reader.jsp");
-
-
         }else {
             request.getSession().setAttribute("msg","登陆错误，请再次登陆");
            doGet(request,response);

@@ -126,7 +126,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card table-card ">
                         <div class="card-header pb-0">
-                            <h4>书籍列表</h4>
+                            <h3>借阅记录</h3>
                         </div>
                         <div class="card-body">
                             <div class="chart-holder">
@@ -136,28 +136,39 @@
                                         <tr>
                                             <th><input type="checkbox" name="checkall" value="all" id="del"  ></th>
                                             <th style="text-align: center">样式</th>
+                                            <th style="text-align: center">书籍编号</th>
                                             <th style="text-align: center">书籍名称</th>
                                             <th style="text-align: center">借阅时间</th>
                                             <th style="text-align: center">应还时间</th>
                                             <th style="text-align: center">归还时间</th>
 
-                                            <th ><button  id="btn" style="color: white;background-color: #00acee;width: 80px;height: 50px;text-align: center" >
-                                                借阅
+                                            <th ><button  id="returnbtn" style="color: white;background-color: #F4B400;width: 50px;height: 35px;text-align: center" >
+                                                归还
+                                            </button></th>
+                                            <th></th>
+                                            <th ><button  id="again" style="color: white;background-color: #00acee;width: 50px;height: 35px;text-align: center" >
+                                                续借
                                             </button></th>
                                             <th></th>
                                         </tr>
                                         </thead>
                                         <c:forEach items="${borrowDetai}" var="borrow">
                                             <tbody>
-                                            <tr id="${borrow.getBookId()}">
+                                            <tr id="${borrow.getId()}">
                                                 <td>
-                                                        <input class="qin" type="checkbox" name="check" value="${borrow.getBookId()}" >
+                                                    <c:if test="${borrow.getReturnDate()==null}">
+
+                                                        <input class="qin" type="checkbox" name="check" value="${borrow.getId()}" >
+                                                    </c:if>
+
                                                 </td>
-                                                <td><img src="static/book/${borrow.getBookimg()}"> </td>
-                                               <td >${borrow.getBookName()}</td>
-                                                <td >${borrow.getBorrowDate()}</td>
-                                                <td >${borrow.getReturnedDate()}</td>
-                                                <td>${borrow.getReturnDate()}</td>
+                                                <td><img width="100px" src="static/book/${borrow.getBookimg()}"> </td>
+                                                <td style="text-align: center">51120${borrow.getBookId()}</td>
+                                               <td style="text-align: center">${borrow.getBookName()}</td>
+                                                <td style="text-align: center">${borrow.getBorrowDate()}</td>
+                                                <td style="text-align: center">${borrow.getReturnedDate()}</td>
+                                                <td style="text-align: center"> ${borrow.getReturnDate()}</td>
+                                                <td><a href="delete?id=${borrow.getId()}" style="color: white" href="delete"><button style="background-color: orangered" class="delete">删除</button></a> </td>
 <%--                                                <td>--%>
 <%--                                                    <c:if test="${book.getStatus() == '无货'}">--%>
 <%--                                                        <label class="mb-0 badge badge-success" title="" data-original-title="Pending"> ${book.getStatus()}</label>--%>

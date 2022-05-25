@@ -3,10 +3,7 @@ package com.book.dao;
 import com.book.entity.Book;
 import com.book.entity.BookClass;
 import com.book.entity.Borrow;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -24,7 +21,7 @@ public interface BookMapper {
     @Update("update book set status='无货' where Id=#{id}")
     void selectnot(int id);
     @Update("update book set status='有货' where Id=#{id}")
-    void selecthave(int id);
+    void updatehave(int id);
     @Insert("insert into borrow(readerId,bookId,borrowDate,returnedDate,returnDate,reBorrow) values(#{readId},#{bookId},now(),DATE_ADD(now(),INTERVAL 1 MONTH),null,'n')")
     int insertBorrow(@Param("readId") int readId,@Param("bookId") int bookId);
     @Select("select * from borrow where bookId=#{booId}")
@@ -35,4 +32,12 @@ public interface BookMapper {
     String selectimg(int bookId);
     @Select("select name from book where Id=#{bookId}")
     String selectbookname(int bookId);
+    @Update("update borrow set returnDate=now() where id=#{id}")
+    int updataReturnData(int id);
+    @Select("select bookId from borrow where id=#{id}")
+    int selectBookIdById(int id);
+    @Update("update borrow set borrowDate=now() where id=#{id}")
+    int updataBorrowData(int id);
+    @Delete("DELETE from borrow where id=#{id}")
+    int deleteborrow(int id);
 }

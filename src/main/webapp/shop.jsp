@@ -150,7 +150,8 @@
                                         <c:forEach items="${shop.getBookList()}" var="book">
                                             <tbody>
                                             <tr id="${book.getId()}">
-                                                <td> <c:if test="${book.getStatus() == '无货'}">
+                                                <td>
+                                                    <c:if test="${book.getStatus() == '无货'}">
                                                 </c:if>
                                                     <c:if test="${book.getStatus() == '有货'}">
                                                         <input class="qin" type="checkbox" name="check" value="${book.getId()}" >

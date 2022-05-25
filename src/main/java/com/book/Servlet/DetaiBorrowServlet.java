@@ -21,11 +21,11 @@ public class DetaiBorrowServlet extends HttpServlet {
         List<Borrow> borrowList=new ArrayList<>();
         SqlSession sqlsession= MybatisUtil.getSession();
         BookMapper mapper=sqlsession.getMapper(BookMapper.class);
-        borrowList=mapper.selectBorrowList(1);
-        shopingBorrow.toBorrowinfo(borrowList);
+        borrowList=mapper.selectBorrowList(1);//根据阅读者id查找借阅记录
+        shopingBorrow.toBorrowinfo(borrowList);//借阅记录包装
         request.getSession().setAttribute("borrowDetai",shopingBorrow.getBorrowList());
-       shopingBorrow.getBorrowList().forEach(System.out::println);
-        response.sendRedirect("borrow.jsp");
+
+        request.getRequestDispatcher("/borrow.jsp").forward(request,response);
 
     }
 

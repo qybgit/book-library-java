@@ -18,10 +18,9 @@ if (request.getSession().getAttribute("shop")==null){
     request.getRequestDispatcher("/shop.jsp").forward(request,response);
 }else {
     Shopingbook booList= (Shopingbook) request.getSession().getAttribute("shop");
-    booList.remover1(id);
+    booList.remover(id);
     request.getSession().setAttribute("shop",booList);
     response.setContentType("application/json;charset=utf-8");
-    response.getWriter().print(JSON.toJSON(booList));
 
 }
 
