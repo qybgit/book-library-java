@@ -24,7 +24,6 @@ public class DetaiBorrowServlet extends HttpServlet {
         borrowList=mapper.selectBorrowList(1);//根据阅读者id查找借阅记录
         shopingBorrow.toBorrowinfo(borrowList);//借阅记录包装
         request.getSession().setAttribute("borrowDetai",shopingBorrow.getBorrowList());
-
         request.getRequestDispatcher("/borrow.jsp").forward(request,response);
 
     }

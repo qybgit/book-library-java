@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/icofont.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/my.css">
     <link rel="stylesheet" id="theme-change" type="text/css" href="">
 </head>
 
@@ -140,13 +141,14 @@
                                             <th style="text-align: center">书籍名称</th>
                                             <th style="text-align: center">借阅时间</th>
                                             <th style="text-align: center">应还时间</th>
+
                                             <th style="text-align: center">归还时间</th>
 
-                                            <th ><button  id="returnbtn" style="color: white;background-color: #F4B400;width: 50px;height: 35px;text-align: center" >
+                                            <th ><button class="returncss"  id="returnbtn" style="color: white;background-color: #F4B400;width: 60px;height: 35px;text-align: center" >
                                                 归还
                                             </button></th>
                                             <th></th>
-                                            <th ><button  id="again" style="color: white;background-color: #00acee;width: 50px;height: 35px;text-align: center" >
+                                            <th ><button class="xujie"  id="again" style="color: white;background-color: #00acee;width: 60px;height: 35px;text-align: center" >
                                                 续借
                                             </button></th>
                                             <th></th>
@@ -168,7 +170,12 @@
                                                 <td style="text-align: center">${borrow.getBorrowDate()}</td>
                                                 <td style="text-align: center">${borrow.getReturnedDate()}</td>
                                                 <td style="text-align: center"> ${borrow.getReturnDate()}</td>
-                                                <td><a href="delete?id=${borrow.getId()}" style="color: white" href="delete"><button style="background-color: orangered" class="delete">删除</button></a> </td>
+                                                <c:if test="${borrow.getReturnDate()!=null}">
+                                                <td><a href="delete?id=${borrow.getId()}" style="color: white"><button style="background-color: orangered;width: 60px;height: 30px" class="delete">删除</button></a> </td>
+                                                </c:if>
+                                                <c:if test="${borrow.getReturnDate()==null}">
+                                                    <td><a  style="color: white" ><button style="background-color: orangered;width: 60px;height: 30px" class="delete">未归还</button></a> </td>
+                                                </c:if>
 <%--                                                <td>--%>
 <%--                                                    <c:if test="${book.getStatus() == '无货'}">--%>
 <%--                                                        <label class="mb-0 badge badge-success" title="" data-original-title="Pending"> ${book.getStatus()}</label>--%>

@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/icofont.min.css">
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/my.css">
     <link rel="stylesheet" id="theme-change" type="text/css" href="">
 </head>
 
@@ -141,7 +142,7 @@
                                             <th style="text-align: center">书籍作者</th>
                                             <th style="text-align: center">书籍出版社</th>
                                             <th style="text-align: center">图书状态</th>
-                                            <th ><button  id="btn" style="color: white;background-color: #00acee;width: 80px;height: 50px;text-align: center" >
+                                            <th ><button class="xujie"  id="btn" style="color: white;background-color: #00acee;width: 80px;height: 50px;text-align: center" >
                                                 借阅
                                             </button></th>
                                             <th></th>
@@ -170,14 +171,14 @@
                                                     <c:if test="${book.getStatus() == '有货'}">
                                                         <label class="mb-0 badge badge-primary" title="" data-original-title="Pending">${book.getStatus()}</label>
                                                     </c:if>                                                </td>
-                                                <td>
-                                                    <c:if test="${book.getStatus()== '有货'}">
-                                                        <a style="color: #00acee;text-align: center" href="shopreal?id=${book.getId()}">借阅</a>
-                                                    </c:if>
-                                                    <c:if test="${book.getStatus()== '无货'}">
-                                                        <p style="color: red">无法借阅</p>
-                                                    </c:if>
-                                                    </td>
+<%--                                                <td>--%>
+<%--                                                    <c:if test="${book.getStatus()== '有货'}">--%>
+<%--                                                        <a style="color: #00acee;text-align: center" href="shopreal?id=${book.getId()}">借阅</a>--%>
+<%--                                                    </c:if>--%>
+<%--                                                    <c:if test="${book.getStatus()== '无货'}">--%>
+<%--                                                        <p style="color: red">无法借阅</p>--%>
+<%--                                                    </c:if>--%>
+<%--                                                    </td>--%>
                                                 <td><a style="color: red" href="javascript:doRequst(${book.getId()})" >移除</a></td>
 
 
