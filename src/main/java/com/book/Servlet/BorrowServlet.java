@@ -12,6 +12,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "ShopingServlet1", value = "/shopreal")
 public class BorrowServlet extends HttpServlet {
@@ -43,7 +44,8 @@ public class BorrowServlet extends HttpServlet {
         String id=request.getParameter("id");
 Student student= (Student) request.getSession().getAttribute("s");
 JSONArray jsonArray= JSON.parseArray(id);
-jsonArray.forEach(System.out::println);
+
+
 Shopingbook booList= (Shopingbook) request.getSession().getAttribute("shop");
 
 //jsonArray.forEach(System.out::println);
@@ -55,7 +57,7 @@ Shopingbook booList= (Shopingbook) request.getSession().getAttribute("shop");
             borrowList= (ShopingBorrow) request.getSession().getAttribute("borrow");
         }
         BorrowServiceimpl service=new BorrowServiceimpl();
-        service.insert(1,jsonArray,borrowList,booList);
+        service.insert(1,jsonArray,borrowList,booList);//插入借阅图书数据
         request.getSession().setAttribute("borrow",borrowList);
         response.getWriter().print(JSON.toJSON(borrowList));
 
