@@ -44,11 +44,7 @@ public class BorrowServlet extends HttpServlet {
         String id=request.getParameter("id");
 Student student= (Student) request.getSession().getAttribute("s");
 JSONArray jsonArray= JSON.parseArray(id);
-
-
 Shopingbook booList= (Shopingbook) request.getSession().getAttribute("shop");
-
-//jsonArray.forEach(System.out::println);
         ShopingBorrow borrowList;
         if(request.getSession().getAttribute("borrow")==null){
             borrowList=new ShopingBorrow();
@@ -60,7 +56,5 @@ Shopingbook booList= (Shopingbook) request.getSession().getAttribute("shop");
         service.insert(1,jsonArray,borrowList,booList);//插入借阅图书数据
         request.getSession().setAttribute("borrow",borrowList);
         response.getWriter().print(JSON.toJSON(borrowList));
-
-//        System.out.println(impl.insert(1, jsonArray);
     }
 }

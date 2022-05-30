@@ -39,9 +39,9 @@
                     <form method="post" action="login">
                         <h2><span class="primary">你好，</span>欢迎!</h2>
                         <p >请输入用户名和密码进行登录</p>
-                        <c:if test="${msg!=null}">
+
                         <p  style="color: red">${msg}</p>
-                    </c:if>
+
                         <div class="ad-auth-form">
                             <div class="ad-auth-feilds mb-30">
                                 <input type="text" placeholder="用户名称" class="ad-input" name="username">
@@ -63,12 +63,12 @@
                                     <span>记住我</span>
                                 </label>
                             </div>
-                            <a class="forgot-pws-btn" href="#">忘记密码?</a>
+                            <a class="forgot-pws-btn" href="">忘记密码?</a>
                         </div>
                         <div class="ad-auth-btn">
                             <input class="ad-btn ad-login-member" value="登陆 "type="submit">
                         </div>
-                        <p class="ad-register-text">没有用户吗? <a href="#">注册用户</a></p>
+                        <p class="ad-register-text">没有用户吗? <a href="reader.jsp">注册用户</a></p>
                     </form>
                 </div>
             </div>

@@ -137,6 +137,9 @@
                                                 <th>阅读人姓名</th>
                                                 <th>阅读人班级</th>
                                                 <th>邮箱</th>
+                                                <th>账户余额</th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -147,6 +150,34 @@
     <td> ${s.getName()}</td>
     <td> ${s.getBj()}</td>
     <td> ${s.getEmail()}</td>
+    <td> ${s.getDeposit()}</td>
+    <td class="relative">
+        <a class="action-btn " href="javascript:void(0); ">
+            <svg class="default-size " viewbox="0 0 341.333 341.333 ">
+                <g>
+                    <g>
+                        <g>
+                            <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
+                            <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
+                            <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </a>
+        <div class="action-option ">
+            <ul>
+                <li>
+                    <a href="change.jsp"><i class="far fa-edit mr-2 "></i>修改密码</a>
+                </li>
+                <li>
+                    <a href="setting.jsp"><i class="far fa-transgender-alt mr-2 "></i>账户充值</a>
+                </li>
+            </ul>
+        </div>
+    </td>
+
+
 
 
 

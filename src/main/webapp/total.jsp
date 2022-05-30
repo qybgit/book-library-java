@@ -86,6 +86,36 @@
                             </span>
                             </a>
                         </li>
+                        <li>
+                            <a href="">
+                            <span class="icon-menu feather-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                            </span>
+                                <span class="menu-text">
+                                主页
+                            </span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="reader.jsp">
+                                    <span class="icon-dash">
+                                    </span>
+                                        <span class="menu-text">
+                                        我的信息
+                                    </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                    <span class="icon-dash">
+                                    </span>
+                                        <span class="menu-text">
+                                        我的罚款
+                                    </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </aside>
@@ -152,10 +182,10 @@
                                                     <td>${book.getPress()}</td>
                                                     <td>
 
-                                                        <c:if test="${book.getStatus() == '无货'}">
+                                                        <c:if test="${book.getStatus() == '不在库'}">
                                                             <label class="mb-0 badge badge-success" title="" data-original-title="Pending"> ${book.getStatus()}</label>
                                                         </c:if>
-                                                        <c:if test="${book.getStatus() == '有货'}">
+                                                        <c:if test="${book.getStatus() == '在库'}">
                                                             <label class="mb-0 badge badge-primary" title="" data-original-title="Pending">${book.getStatus()}</label>
                                                         </c:if>
 

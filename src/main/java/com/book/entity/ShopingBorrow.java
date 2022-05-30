@@ -27,14 +27,14 @@ public class ShopingBorrow {
     public void setBorrowList(List<Borrowinfo> borrowList) {
         this.borrowList = borrowList;
     }
-    public boolean tran(int bookId){
-        SqlSession sqlsession= MybatisUtil.getSession();
-        BookMapper mapper=sqlsession.getMapper(BookMapper.class);
-         borrow=mapper.selectBorrow(bookId);//查找借阅信息
-        borrowinfo.setBorrow(borrow.id, borrow.readerId,borrow.bookId,borrow.borrowDate,borrow.returnedDate,borrow.returnDate);
-        borrowList.add(borrowinfo);
-return true;
-    }
+//    public boolean tran(int bookId){
+//        SqlSession sqlsession= MybatisUtil.getSession();
+//        BookMapper mapper=sqlsession.getMapper(BookMapper.class);
+//         borrow=mapper.selectBorrow(bookId);//查找借阅信息
+//        borrowinfo.setBorrow(borrow.id, borrow.readerId,borrow.bookId,borrow.borrowDate,borrow.returnedDate,borrow.returnDate);
+//        borrowList.add(borrowinfo);
+//return true;
+//    }
     public void toBorrowinfo(List<Borrow> borrows){
         SqlSession sqlsession= MybatisUtil.getSession();
         BookMapper mapper=sqlsession.getMapper(BookMapper.class);

@@ -7,8 +7,9 @@ import org.apache.ibatis.annotations.Param;
 @Data
 @ToString
 public class Student {
+    String id;
    public String Name;
-
      String bj;
-    String Email;
+     String Email;
+     String deposit;
 }

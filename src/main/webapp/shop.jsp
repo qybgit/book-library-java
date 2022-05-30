@@ -152,9 +152,9 @@
                                             <tbody>
                                             <tr id="${book.getId()}">
                                                 <td>
-                                                    <c:if test="${book.getStatus() == '无货'}">
+                                                    <c:if test="${book.getStatus() == '不在库'}">
                                                 </c:if>
-                                                    <c:if test="${book.getStatus() == '有货'}">
+                                                    <c:if test="${book.getStatus() == '在库'}">
                                                         <input class="qin" type="checkbox" name="check" value="${book.getId()}" >
                                                     </c:if>
 
@@ -165,10 +165,10 @@
                                                 <td >${book.getAuthors()}</td>
                                                 <td>${book.getPress()}</td>
                                                 <td>
-                                                    <c:if test="${book.getStatus() == '无货'}">
+                                                    <c:if test="${book.getStatus() == '不在库'}">
                                                         <label class="mb-0 badge badge-success" title="" data-original-title="Pending"> ${book.getStatus()}</label>
                                                     </c:if>
-                                                    <c:if test="${book.getStatus() == '有货'}">
+                                                    <c:if test="${book.getStatus() == '在库'}">
                                                         <label class="mb-0 badge badge-primary" title="" data-original-title="Pending">${book.getStatus()}</label>
                                                     </c:if>                                                </td>
 <%--                                                <td>--%>
