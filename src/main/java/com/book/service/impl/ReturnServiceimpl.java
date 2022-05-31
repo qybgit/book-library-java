@@ -14,6 +14,7 @@ public class ReturnServiceimpl implements ReturnService {
         BookMapper mapper=sqlsession.getMapper(BookMapper.class);
         for(String s:list){
             mapper.updataReturnData(Integer.parseInt(s));
+
             mapper.updatehave( mapper.selectBookIdById(Integer.parseInt(s)));
         }
         return true;
@@ -26,5 +27,10 @@ public class ReturnServiceimpl implements ReturnService {
         for(String s:list){
             mapper.updataBorrowData(Integer.parseInt(s));
         }return true;
+    }
+
+    @Override
+    public boolean fine() {
+        return false;
     }
 }

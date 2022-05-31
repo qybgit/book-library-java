@@ -163,16 +163,16 @@ $(function () {
     })
 })
 $(function () {
-    $('#have').hide();
+    $('.have').hide();
     $("input[name='radio']").change(function () {
         let num=$("input[name='radio']:checked").val();
         if(num==1){
-            $("#have").hide()
-            $("#not").show()
+            $(".have").hide()
+            $(".not").show()
         }
         else{
-            $("#have").show()
-            $("#not").hide()
+            $(".have").show()
+            $(".not").hide()
         }
     })
 })

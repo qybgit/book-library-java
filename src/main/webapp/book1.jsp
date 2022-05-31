@@ -54,8 +54,13 @@
                 <!-- Table Start -->
                 <div class="row">
                     <!-- Styled Table Card-->
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div style="margin-right: 1000px" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card table-card">
+                            <div class="form-group mb-0">
+                               <a href="total">
+                                   <button style="margin-left: 28px;margin-top: 30px" class="btn btn-primary" type="submit">返回</button>
+                               </a>
+                            </div>
                             <div class="card-header pb-0">
                                 <label>
                                 <input type="radio" value="1" name="radio"><i style="color: red">未交款</i>
@@ -72,57 +77,79 @@
                                         <table class="table table-styled mb-0">
                                             <thead>
                                             <tr>
-                                                <th>#ID</th>
-                                                <th>标题</th>
-                                                <th>简介</th>
-                                                <th>价格</th>
-                                                <th>删除</th>
+<%--                                                <th>#ID</th>--%>
+                                                <th>书名</th>
+                                                <th>还书时间</th>
+                                                <th>欠款金额</th>
+                                                <th>去交款</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr id="not">
-                                                <td text="">1</td>
-                                                <td text="">书籍名称</td>
-                                                <td text="">书籍简介</td>
-                                                <td text="">价格</td>
-                                                <td class="relative">
-                                                    <a class="action-btn " href="">
-                                                        <svg class="default-size " viewBox="0 0 341.333 341.333 ">
-                                                            <g>
-                                                                <g>
-                                                                    <g>
-                                                                        <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
-                                                                        <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
-                                                                        <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
-                                                                    </g>
-                                                                </g>
-                                                            </g>
-                                                        </svg>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                            <c:forEach items="${FineYes}" var="fine">
 
-                                            <tr id="have">
-                                                <td text="">1</td>
-                                                <td text="">书籍名称</td>
-                                                <td text="">书籍简介</td>
-                                                <td text="">价格</td>
-                                                <td class="relative">
-                                                    <a class="action-btn " href="">
-                                                        <svg class="default-size " viewBox="0 0 341.333 341.333 ">
-                                                            <g>
+
+                                            <tr class="have">
+<%--                                                <td text="">${fine.getId()}</td>--%>
+                                                <td text="">${fine.getName()}</td>
+                                                <td text="">${fine.getReturnedDate()}</td>
+                                                <td text="">${fine.getPrice()}</td>
+    <td class="relative">
+        <a class="action-btn " href="javascript:void(0); ">
+            <svg class="default-size " viewbox="0 0 341.333 341.333 ">
+                <g>
+                    <g>
+                        <g>
+                            <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
+                            <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
+                            <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </a>
+        <div class="action-option ">
+            <ul>
+                <li>
+                    <a href='fine.jsp?id=${fine.getId()}'><i class="far fa-transgender-alt mr-2 "></i>缴纳罚款</a>
+                </li>
+            </ul>
+        </div>
+    </td>
+                                            </tr>
+                                            </c:forEach>
+
+                                            </tbody>
+                                            <tbody>
+                                            <c:forEach items="${FineNo}" var="fine">
+                                                <tr class="not">
+                                                        <%--                                                <td text="">${fine.getId()}</td>--%>
+                                                    <td text="">${fine.getName()}</td>
+                                                    <td text="">${fine.getReturnedDate()}</td>
+                                                    <td text="">${fine.getPrice()}</td>
+                                                    <td class="relative">
+                                                        <a class="action-btn " href="javascript:void(0); ">
+                                                            <svg class="default-size " viewbox="0 0 341.333 341.333 ">
                                                                 <g>
                                                                     <g>
-                                                                        <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
-                                                                        <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
-                                                                        <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
+                                                                        <g>
+                                                                            <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
+                                                                            <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
+                                                                            <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
+                                                                        </g>
                                                                     </g>
                                                                 </g>
-                                                            </g>
-                                                        </svg>
-                                                    </a>
-                                                </td>
-                                            </tr>
+                                                            </svg>
+                                                        </a>
+                                                        <div class="action-option ">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href='fine.jsp?id=${fine.getId()}'><i class="far fa-transgender-alt mr-2 "></i>缴纳罚款</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
                                             </tbody>
                                         </table>
                                     </div>

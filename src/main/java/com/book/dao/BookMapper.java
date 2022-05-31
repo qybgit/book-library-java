@@ -40,4 +40,8 @@ public interface BookMapper {
     int updataBorrowData(int id);
     @Delete("DELETE from borrow where id=#{id}")
     int deleteborrow(int id);
+    @Select("SELECT * FROM borrow WHERE  TIMESTAMPDIFF(SECOND,returnedDate,returnDate) and Id=#{id};")
+    Borrow selectPuanduan(@Param("id")String id);
+    @Select("SELECT * FROM borrow WHERE  TIMESTAMPDIFF(SECOND,returnedDate,returnDate)")
+    List<Borrow> selectFineTable();
 }
