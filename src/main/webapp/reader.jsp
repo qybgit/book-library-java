@@ -199,7 +199,7 @@
                     <a href="change.jsp"><i class="far fa-edit mr-2 "></i>修改密码</a>
                 </li>
                 <li>
-                    <a href="setting.jsp"><i class="far fa-transgender-alt mr-2 "></i>账户充值</a>
+                    <a href="deposit.jsp"><i class="far fa-transgender-alt mr-2 "></i>账户充值</a>
                 </li>
             </ul>
         </div>

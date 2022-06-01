@@ -37,7 +37,7 @@ public class FineServiceimpl implements FineService {
     }
 
     @Override
-    public boolean crateFine(List<Fine> fineList1) {
+    public boolean crateFine(List<Fine> fineList1,int a) {
         this.fineList=fineList1;
         List<Borrowinfo> borrowinfoList=shopingBorrow.getBorrowList();
         for (int i = 0; i < borrowinfoList.size(); i++) {
@@ -50,9 +50,9 @@ public class FineServiceimpl implements FineService {
             }
 
 
-            Fine fine=new Fine(borrowinfo.getBookName(),borrowinfo.getBorrowDate(),borrowinfo.getReturnDate(),price,borrowinfo.getId());
+            Fine fine=new Fine(borrowinfo.getBookName(),borrowinfo.getBorrowDate(),borrowinfo.getReturnDate(),price,borrowinfo.getId(),a);
 fineList.add(fine);
-mapper.insertFine(fine.getName(),fine.getPrice(),fine.getBorrowDate(),fine.getReturnedDate(),fine.getBorrowId());
+mapper.insertFine(fine.getName(),fine.getPrice(),fine.getBorrowDate(),fine.getReturnedDate(),fine.getBorrowId(),a);
 
         }
 
@@ -69,6 +69,12 @@ mapper.insertFine(fine.getName(),fine.getPrice(),fine.getBorrowDate(),fine.getRe
     public List<Fine> fineYes() {
         List<Fine> fineList2=mapper.selectFineYes();
         return fineList2;
+    }
+
+    @Override
+    public boolean returnMoney(int a) {
+
+        return true;
     }
 
 

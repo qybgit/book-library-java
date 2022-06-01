@@ -26,7 +26,7 @@ doPost(request,response);
             fineList=new ArrayList<>();
 
             service.selectBorrow();
-            service.crateFine(fineList);
+            service.crateFine(fineList,1);
             request.getSession().setAttribute("Fine",service.getFineList());
 
         }
@@ -34,7 +34,6 @@ doPost(request,response);
             fineList= (List<Fine>) request.getSession().getAttribute("Fine");
 List<Fine> fineList1=service.fineNo();
 List<Fine> fineList2=service.fineYes();
-fineList2.forEach(System.out::println);
         request.getSession().setAttribute("FineNo",fineList1);
         request.getSession().setAttribute("FineYes",fineList2);
         request.getRequestDispatcher("/book1.jsp").forward(request,response);

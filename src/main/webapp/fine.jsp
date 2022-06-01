@@ -74,9 +74,7 @@
                                 <form class="separate-form" method="post">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                         <div class="row">
-                                            <c:forEach items="${FineNo}" var="fine">
-                                                <c:if test="${fine.getId()==re}"
-                                            </c:forEach>
+
                                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                                 <div class="form-group">
                                                     <label  class="col-form-label">书籍标题</label>

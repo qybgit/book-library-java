@@ -1,4 +1,3 @@
-
 <%@ page import="java.util.List" %>
 <%@ page import="com.book.entity.BookClass" %>
 
@@ -36,144 +35,137 @@
         <img src="static/picture/loader.gif" alt="">
     </div>
 </div>
-    <!-- Main Body -->
+<!-- Main Body -->
+<div class="page-wrapper">
+
     <div class="page-wrapper">
-
-        <div class="page-wrapper">
-            <div class="main-content">
-                <!-- Page Title Start -->
-                <div class="row">
-                    <div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="page-title-wrapper">
-                            <div class="page-title-box ad-title-box-use">
-                                <h4 class="page-title">罚款管理</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Table Start -->
-                <div class="row">
-                    <!-- Styled Table Card-->
-                    <div style="margin-right: 1000px" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                        <div class="card table-card">
-                            <div class="form-group mb-0">
-                               <a href="total">
-                                   <button style="margin-left: 28px;margin-top: 30px" class="btn btn-primary" type="submit">返回</button>
-                               </a>
-                            </div>
-                            <div class="card-header pb-0">
-                                <label>
-                                <input type="radio" value="1" name="radio"><i style="color: red">未交款</i>
-                            </label>
-                                <label>
-                                    <input type="radio" value="2" name="radio"><i style="color: #00acee">>已交款</i
-                                </label>
-                            </div>
-
-
-                            <div class="card-body">
-                                <div class="chart-holder">
-                                    <div class="table-responsive">
-                                        <table class="table table-styled mb-0">
-                                            <thead>
-                                            <tr>
-<%--                                                <th>#ID</th>--%>
-                                                <th>书名</th>
-                                                <th>还书时间</th>
-                                                <th>欠款金额</th>
-                                                <th>去交款</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <c:forEach items="${FineYes}" var="fine">
-
-
-                                            <tr class="have">
-<%--                                                <td text="">${fine.getId()}</td>--%>
-                                                <td text="">${fine.getName()}</td>
-                                                <td text="">${fine.getReturnedDate()}</td>
-                                                <td text="">${fine.getPrice()}</td>
-    <td class="relative">
-        <a class="action-btn " href="javascript:void(0); ">
-            <svg class="default-size " viewbox="0 0 341.333 341.333 ">
-                <g>
-                    <g>
-                        <g>
-                            <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
-                            <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
-                            <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
-                        </g>
-                    </g>
-                </g>
-            </svg>
-        </a>
-        <div class="action-option ">
-            <ul>
-                <li>
-                    <a href='fine.jsp?id=${fine.getId()}'><i class="far fa-transgender-alt mr-2 "></i>缴纳罚款</a>
-                </li>
-            </ul>
-        </div>
-    </td>
-                                            </tr>
-                                            </c:forEach>
-
-                                            </tbody>
-                                            <tbody>
-                                            <c:forEach items="${FineNo}" var="fine">
-                                                <tr class="not">
-                                                        <%--                                                <td text="">${fine.getId()}</td>--%>
-                                                    <td text="">${fine.getName()}</td>
-                                                    <td text="">${fine.getReturnedDate()}</td>
-                                                    <td text="">${fine.getPrice()}</td>
-                                                    <td class="relative">
-                                                        <a class="action-btn " href="javascript:void(0); ">
-                                                            <svg class="default-size " viewbox="0 0 341.333 341.333 ">
-                                                                <g>
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
-                                                                            <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
-                                                                            <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
-                                                                        </g>
-                                                                    </g>
-                                                                </g>
-                                                            </svg>
-                                                        </a>
-                                                        <div class="action-option ">
-                                                            <ul>
-                                                                <li>
-                                                                    <a href='fine.jsp?id=${fine.getId()}'><i class="far fa-transgender-alt mr-2 "></i>缴纳罚款</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+        <div style="margin-right: 100px" class="main-content">
+            <!-- Page Title Start -->
+            <div class="row">
+                <div class="colxl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="page-title-wrapper">
+                        <div class="page-title-box ad-title-box-use">
+                            <h4 class="page-title">罚款管理</h4>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Table Start -->
+            <div class="row">
+                <!-- Styled Table Card-->
+                <div style="margin-right: 1000px" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div style="width: 1100px;margin-right: 300px;margin-top: -100px" class="card table-card">
+                        <div class="form-group mb-0">
+                            <a href="total">
+                                <button style="margin-left: 28px;margin-top: 30px" class="btn btn-primary"
+                                        type="submit"><i><&nbsp;&nbsp; </i>返回
+                                </button>
+                            </a>
+                        </div>
+                        <div class="card-header pb-0">
+                            <label>
+                                <input type="radio" value="1" name="radio"><i style="color: red">未交款</i>
+                            </label>
+                            <label>
+                                <input type="radio" value="2" name="radio"><i style="color: #00acee">>已交款</i
+                            </label>
+                        </div>
+
+
+                        <div class="card-body">
+                            <div class="chart-holder">
+                                <div class="table-responsive">
+
+                                                                        <table class="table table-styled mb-0">
+                                                                            <thead>
+                                                                            <tr>
+                                                                                <%--                                                <th>#ID</th>--%>
+                                                                                <th>书名</th>
+                                                                                <th>还书时间</th>
+                                                                                <th>欠款金额</th>
+                                                                                <th>去交款</th>
+                                                                            </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                            <%--                                            已缴纳的页面--%>
+                                                                            <c:forEach items="${FineYes}" var="fine">
+                                                                                <tr class="have">
+                                                                                        <%--                                                <td text="">${fine.getId()}</td>--%>
+                                                                                    <td text="">${fine.getName()}</td>
+                                                                                    <td text="">${fine.getReturnedDate()}</td>
+                                                                                    <td text="">${fine.getPrice()}</td>
+                                                                                    <td>
+
+                                                                                        <a>
+                                                                                            <button style="" class="btn btn-primary" type="submit">已缴纳
+                                                                                            </button>
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <%--                                                未缴纳的页面--%>
+                                                                            </c:forEach>
+                                                                            </tbody>
+                                                                            <tbody>
+                                                                            <c:forEach items="${FineNo}" var="fine">
+                                                                                <tr class="not" data="${fine.getId()}">
+                                                                                        <%--                                                <td text="">${fine.getId()}</td>--%>
+                                                                                    <td text="" class="finename" >${fine.getName()}</td>
+                                                                                    <td text="">${fine.getReturnedDate()}</td>
+                                                                                    <td text="" class="finemoney">${fine.getPrice()}</td>
+                                                                                    <td class="relative">
+                                                                                        <a class="pay" href="javaScript:void(0)">
+                                                                                            <button style="" class="btn btn-primary" type="submit">缴纳罚款
+                                                                                            </button>
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </c:forEach>
+                                                                            </tbody>
+                                                                        </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="cover">
+                            <div class="order">
+                                <div class="close">
+                                    <a href="javascript:;">X</a>
+                                </div>
+                                <div class="order-test"></div>
+                                <div  class="hid"></div>
+                                <div>确认罚款金额:<i class="order-test2"></i></div>
+                                <div>
+                                    <a class="tofine">
+                                        <button style="" class="btn btn-primary" type="submit">去缴纳
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%--            付款页面--%>
+
+
         </div>
     </div>
+</div>
 
-    <!-- Script Start -->
-    <script src="static/js/jquery.min.js"></script>
-    <script src="static/js/popper.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-    <script src="static/js/swiper.min.js"></script>
-    <script src="static/js/apexcharts.min.js"></script>
-    <script src="static/js/remove.js"></script>
-    <script src="static/js/control-chart-apexcharts.js"></script>
-    <!-- Page Specific -->
-    <script src="static/js/nice-select.min.js"></script>
-    <!-- Custom Script -->
-    <script src="static/js/custom.js"></script>
+<!-- Script Start -->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/popper.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/swiper.min.js"></script>
+<script src="static/js/apexcharts.min.js"></script>
+<script src="static/js/remove.js"></script>
+<script src="static/js/control-chart-apexcharts.js"></script>
+<!-- Page Specific -->
+<script src="static/js/nice-select.min.js"></script>
+<!-- Custom Script -->
+<script src="static/js/custom.js"></script>
 </body>
 
 </html>

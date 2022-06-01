@@ -11,6 +11,8 @@ public interface StudentMapper {
     int insertStudent(@Param("name") String name, @Param("grade") String grade,@Param("email") String email,@Param("password") String password);
     @Update("update reader set password=#{pwd} where Id=#{id}")
     int updatePassword(@Param("pwd") String pwd,@Param("id") String id);
-    @Update("update reader set deposit=reader.deposit+#{zj} where Id=#{id}")
-    int updateDeposit(@Param("zj") String zj,@Param("id") String id);
+    @Update("update reader set deposit=reader.deposit+#{zj} where name=#{name}")
+    int updateDeposit1(@Param("zj") String zj,@Param("name") String name);
+    @Update("UPDATE reader set Deposit=reader.Deposit-#{deposit} WHERE Id=#{id}")
+    int updateDeposit(@Param("deposit") double deposit,@Param("id") int id);
 }
